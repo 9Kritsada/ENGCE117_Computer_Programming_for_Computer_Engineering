@@ -44,6 +44,6 @@ void saveNode( struct studentNode *child, char n[], int a, char s, float g ) {
 
 void GoNext1( struct studentNode **walk ) {
 	if ( (*walk) ->next != NULL) {
-		*(*walk) = *(*walk)->next ;
+		walk = &(*walk)->next ;
 	}
 }//end function
