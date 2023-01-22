@@ -26,7 +26,7 @@ int main() {
   GoNext( &now ) ;
   DelNode( now ) ; ShowAll( &start ) ;
   return 0 ;
-}//end function
+} // End main()
 
 void ShowAll( struct studentNode **walk ) {
   while(*walk != NULL) { 
@@ -34,7 +34,7 @@ void ShowAll( struct studentNode **walk ) {
     walk = &(*walk)->next ;
   }
   printf( " " ) ;
-}//end function
+} // End ShowAll()
 
 void InsNode( struct studentNode **walk, const char *name,int age, char sex, float gpa ) {
   struct studentNode *newNode = ( struct studentNode * )malloc( sizeof( struct studentNode ) ); 
@@ -44,18 +44,18 @@ void InsNode( struct studentNode **walk, const char *name,int age, char sex, flo
   newNode->gpa = gpa ;
   newNode->next = *walk ;
   *walk = newNode ;
-}
+} // End InsNode()
 
 void GoNext( struct studentNode ***walk ) {
 	if ( (**walk) ->next != NULL) *walk = &(**walk)->next ;
-}//end function
+} // End GoNext()
 
 void DelNode( struct studentNode **walk ) {
   struct studentNode *current, *temp ;
   current = *walk ;
-  while(current->next != NULL) {
+  while( current->next != NULL ) {
     temp = current->next ;
     current->next = current->next->next ;
-    free(temp) ;
+    free( temp ) ;
   }
-}
+} // End DelNode() 
