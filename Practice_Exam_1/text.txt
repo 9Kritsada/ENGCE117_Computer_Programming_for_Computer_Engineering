@@ -1,0 +1,39 @@
+แนวทางการสอบปฏิบัติครั้งที่ 1
+จงเขียนฟังก์ชันสำหรับ Single Linked List ดังต่อไปนี้ และทำการอธิบายโค้ดโปรแกรมของคุณอย่างละเอียดลงในวีดีโอเพื่ออัพเดตลงใน Youtube
+
+ฟังก์ชันที่ต้องการเพิ่มเติมสำหรับ Single Linked List
+- ฟังก์ชัน UpdateNode
+    การทำงาน : ค้นหาโหนดที่ผู้ใช้ต้องการ และทำการอัพเดตค่าภายในโหนดได้
+    ตัวอย่าง
+    AddNode( &start, 10 )
+    AddNode( &start, 20 )
+    AddNode( &start, 30 )
+    AddNode( &start, 40 )
+    ShowAll() //10, 20, 30, 40
+    Update( &start, 10, 99 )
+    ShowAll() //99, 20, 30, 40
+    Update( &start, 10, 98 )
+    ShowAll() //99, 20, 30, 40
+
+- ฟังก์ชัน ShowBack
+    การทำงาน : แสดงค่าทั้งหมดภายใน Single Linked List จากด้านหลังสุดของ Linked List มาถึงด้านหน้าสุด
+    ตัวอย่าง
+    AddNode( &start, 10 )
+    AddNode( &start, 20 )
+    AddNode( &start, 30 )
+    AddNode( &start, 40 )
+    ShowAll() // 10, 20, 30, 40
+    ShowBack() // 40, 30, 20, 10
+    
+- ฟังก์ชัน SwapNode
+    การทำงาน : ค้นหาโหนดที่ผู้ใช้ต้องการ และทำการ Swap ข้อมูลระหว่างโหนดทั้งสอง
+    ตัวอย่าง
+    AddNode( &start, 10 )
+    AddNode( &start, 20 )
+    AddNode( &start, 30 )
+    AddNode( &start, 40 )
+    ShowAll() //10, 20, 30, 40
+    Swap(&start, 20, 30)
+    ShowAll() //10, 30, 20, 40
+    Swap(&start, 40, 10)
+    ShowAll() //40, 30, 20, 10
