@@ -23,6 +23,8 @@ int main() {
   AddNode( &start, 40 ); 
   ShowAll( start ) ;
 
+  // Uncomment -> ( /* */ ) each function to be used.
+
   // UpdateNode
   /*
   Update( &start, 10, 99 ) ;
@@ -36,7 +38,7 @@ int main() {
   ShowBack( start );
   */
 
-  // SwapNode
+  // // SwapNode
   /*
   Swap(&start, 20, 30) ;
   ShowAll( start ) ; //10, 30, 20, 40
