@@ -1,17 +1,23 @@
 #include <stdio.h>
 
-void TowerHanoi( int m, int i, int j ) ;
+long SumLoop( int ) ;
+long SumRecur( int ) ;
 
 int main() {
-  TowerHanoi( 3, 1, 3 ) ;
+  printf( "SumLoop(n) = %d\n", SumLoop( 10 ) ) ;
+  printf( "SumRecur(n) = %d\n", SumRecur( 10 ) ) ;
   return 0 ;
 }//end function
 
-void TowerHanoi( int m, int i, int j ) {
-  if( m > 0 ) {
-    int k = 6 - i - j ;
-    TowerHanoi( m - 1, i, k ) ;
-    printf("Disc %d from %d to %d\n", m, i, j ) ;
-    TowerHanoi( m - 1, k, j ) ;
-  }
+long SumLoop( int num ) {
+  int i, sum;
+  for( i = 1 ; i <= num ; i++ )
+    sum = sum + i ;
+  return sum ;
+}
+
+long SumRecur( int num ) {
+  if( num >= 1 )
+    return num + SumRecur( num - 1 ) ;
+  return 0 ;
 }
