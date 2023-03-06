@@ -2,39 +2,19 @@
 #include <stdlib.h>
 
 int* knapsackDP(int* w, int* v, int n, int wx) {
-  int** dp = (int**)malloc((n + 1) * sizeof(int*));
-  for (int i = 0; i <= n; i++) {
-    dp[i] = (int*)malloc((wx + 1) * sizeof(int));
-  }
-  for (int i = 0; i <= n; i++) {
-    dp[i][0] = 0;
-  }
-  for (int j = 0; j <= wx; j++) {
-    dp[0][j] = 0;
-  }
+  int* dp = (int*)calloc(wx + 1, sizeof(int));
+  int* x = (int*)calloc(n, sizeof(int));
   for (int i = 1; i <= n; i++) {
-    for (int j = 1; j <= wx; j++) {
-      if (w[i - 1] > j) {
-        dp[i][j] = dp[i - 1][j];
-      } else {
-        int include = v[i - 1] + dp[i - 1][j - w[i - 1]];
-        int exclude = dp[i - 1][j];
-        dp[i][j] = (include > exclude) ? include : exclude;
-      }
+    for (int j = wx; j >= w[i - 1]; j--) {
+      dp[j] = (dp[j - w[i - 1]] + v[i - 1] > dp[j]) ? dp[j - w[i - 1]] + v[i - 1] : dp[j];
     }
   }
-  int* x = (int*)malloc(n * sizeof(int));
   int j = wx;
   for (int i = n; i >= 1; i--) {
-    if (dp[i][j] != dp[i - 1][j]) {
+    if (dp[j] == dp[j - w[i - 1]] + v[i - 1]) {
       x[i - 1] = 1;
       j -= w[i - 1];
-    } else {
-      x[i - 1] = 0;
     }
-  }
-  for (int i = 0; i <= n; i++) {
-    free(dp[i]);
   }
   free(dp);
   return x;
