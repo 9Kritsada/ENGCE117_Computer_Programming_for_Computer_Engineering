@@ -14,7 +14,7 @@ int *KnapsackGreedy( int *w, int *v, int n, int wx ) {
 	int i, j, weight, z ;
 	int *x = new int[n] ; int *y = new int[n] ;
 	float *vw = new float[n] ;
-	for ( int i = 0 ; i < n ; i++){
+	for( int i = 0 ; i < n ; i++){
 		vw[ i ] = float(v[i])/float(w[i]);
 		x[ i ] = 0 ;
 		y[ i ] = 1 ;	
